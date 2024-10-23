@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('materials', function (Blueprint $table) {
+        Schema::create('user_tests', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->mediumText('insight')->nullable();
-            $table->mediumText('question')->nullable();
-            $table->mediumText('summary')->nullable();
-            $table->mediumText('content')->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->enum('packet', ['pre_1', 'pre_2', 'pre_3', 'pre_4', 'post_1', 'post_2', 'post_3', 'post_4'])->nullable();
+            $table->integer('score')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('materials');
+        Schema::dropIfExists('user_tests');
     }
 };

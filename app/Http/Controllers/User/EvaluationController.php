@@ -25,9 +25,11 @@ class EvaluationController extends Controller
     }
 
     public function pretest(){
-        $material = $this->material::all();
         return view($this->view.'pretest',[
-            'material' => $material,
+        ]);
+    }
+    public function posttest(){
+        return view($this->view.'posttest',[
         ]);
     }
 }

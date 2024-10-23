@@ -6,6 +6,9 @@
         display: inline; /* Agar tetap inline seperti teks biasa */
         color: inherit; /* Mengambil warna dari atribut style */
     }
+    img {
+        max-width: 100%;
+    }
 </style>
 @endsection
 @section('content')

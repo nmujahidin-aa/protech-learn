@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Question;
 
 class EvaluationController extends Controller
 {
@@ -14,6 +15,14 @@ class EvaluationController extends Controller
         $this->route = "evaluation.";
     }
     public function index(){
-        return view($this->view.'index');
+        $pretestCounts = [];
+        $posttestCounts = [];
+
+        for ($i = 1; $i <= 4; $i++) {
+            $pretestCounts[$i] = Question::where('packet', 'pre_' . $i)->count();
+            $posttestCounts[$i] = Question::where('packet', 'post_' . $i)->count();
+        }
+
+        return view($this->view.'index', compact('pretestCounts', 'posttestCounts'));
     }
 }

@@ -88,7 +88,7 @@
                 <div data-kt-menu-trigger="click" class="menu-item  @if(request()->routeIs('dashboard.evaluation.*')) here show @endif menu-accordion">
                     <a href="{{route('dashboard.evaluation.index')}}" class="menu-link">
                         <span class="menu-icon">
-                            <i class="ki-duotone ki-youtube fs-2">
+                            <i class="ki-duotone ki-question fs-2">
                                 <i class="path1"></i>
                                 <i class="path2"></i>
                                 <i class="path3"></i>

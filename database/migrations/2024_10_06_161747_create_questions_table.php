@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('evaluations', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('material_id')->constrained()->onDelete('cascade');
-            $table->string('question')->nullable();
+            $table->enum('packet',['pre_1', 'pre_2', 'pre_3', 'pre_4', 'post_1', 'post_2', 'post_3', 'post_4'])->nullable();
+            $table->mediumText('question')->nullable();
             $table->text('option_a')->nullable();
             $table->text('option_b')->nullable();
             $table->text('option_c')->nullable();
             $table->text('option_d')->nullable();
             $table->enum('correct_answer', ['a', 'b', 'c', 'd'])->nullable();
-            $table->enum('type',['pretest', 'posttest'])->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('evaluations');
+        Schema::dropIfExists('questions');
     }
 };

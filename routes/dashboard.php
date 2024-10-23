@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\WorksheetController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\AssignmentController;
 use App\Http\Controllers\Admin\EvaluationController;
+use App\Http\Controllers\Admin\PretestController;
+use App\Http\Controllers\Admin\PosttestController;
 
 
 /*
@@ -47,5 +49,22 @@ RouteHelper::make('team', 'team', TeamController::class);
 
 RouteHelper::make('assignment', 'assignment', AssignmentController::class);
 RouteHelper::make('evaluation', 'evaluation', EvaluationController::class);
+Route::group(["prefix"=>"evaluation", "as"=>"evaluation."], function(){
+    Route::group(["prefix"=>"pretest", "as"=>"pretest."], function(){
+        Route::get('/{id}', [PretestController::class, 'pretest'])->name('index');
+        Route::post('/store', [PretestController::class, 'storePretest'])->name('store');
+        Route::get('/{id}/edit/{ids?}', [PretestController::class, 'editPretest'])->name('edit');
+        Route::post('/update/{id}', [PretestController::class, 'updatePretest'])->name('update');
+        Route::delete('/delete/{id}', [PretestController::class, 'deletePretest'])->name('delete');
+        Route::post('/upload', [PretestController::class, 'upload'])->name('upload');
+    });
+    Route::group(["prefix"=>"posttest", "as"=>"posttest."], function(){
+        Route::get('/{id}', [PosttestController::class, 'posttest'])->name('index');
+        Route::post('/store', [PosttestController::class, 'storePosttest'])->name('store');
+        Route::get('/{id}/edit/{ids?}', [PosttestController::class, 'editPosttest'])->name('edit');
+        Route::post('/update/{id}', [PosttestController::class, 'updatePosttest'])->name('update');
+        Route::delete('/delete/{id}', [PosttestController::class, 'deletePosttest'])->name('delete');
+    });
+});
 
 
