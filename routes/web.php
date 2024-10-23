@@ -33,7 +33,24 @@ Route::group(["namespace" => "App\Http\Controllers\User", "middleware"=>"auth"],
     Route::group(["prefix"=>"evaluation", "as"=>"evaluation."], function(){
         Route::get("/", "EvaluationController@index")->name('index');
         Route::get("/pretest", "EvaluationController@pretest")->name('pretest');
+
+        Route::group(["prefix"=>"pretest", "as"=>"pretest."], function(){
+            Route::get("/{id}", "PretestController@index")->name('index');
+            Route::get('/{id}/result', 'PretestController@result')->name('result');
+            Route::post('/save-answer', 'PretestController@saveAnswer')->name('saveAnswer');
+            Route::post('/submit', 'PretestController@submit')->name('submit');
+            Route::get('/{id}/{questionNumber?}', 'PretestController@show')->name('show');
+
+        });
         Route::get("/posttest", "EvaluationController@posttest")->name('posttest');
+        Route::group(["prefix"=>"posttest", "as"=>"posttest."], function(){
+            Route::get("/{id}", "PosttestController@index")->name('index');
+            Route::get('/{id}/result', 'PosttestController@result')->name('result');
+            Route::post('/save-answer', 'PosttestController@saveAnswer')->name('saveAnswer');
+            Route::post('/submit', 'PosttestController@submit')->name('submit');
+            Route::get('/{id}/{questionNumber?}', 'PosttestController@show')->name('show');
+
+        });
         Route::get("/game", "EvaluationController@game")->name('game');
     });
 

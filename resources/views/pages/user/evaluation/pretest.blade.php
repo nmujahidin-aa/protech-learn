@@ -12,7 +12,7 @@
                 <div class="row g-3 mb-5">
                     @for ( $i = 1; $i <= 4; $i++ )
                     <div class="col-lg-6 col-sm-12 col-md-6 text-center">
-                        <a href="" class="card background-test">
+                        <a href="{{route('evaluation.pretest.index', $i)}}" class="card background-test">
                             <div class="card-body">
                                 <img src="{{URL::TO('/')}}/assets/image/icon/test.svg" alt="pendahuluan" style="width: 30%;">
                                 <h4 class="text-light pt-1">Paket {{$i}}</h4>
