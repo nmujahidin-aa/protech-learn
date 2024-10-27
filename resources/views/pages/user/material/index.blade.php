@@ -11,7 +11,7 @@
                 @if ($material->count() > 0)
                     @foreach ($material as $index => $row)
                     <div class="row gy-2 mb-5">
-                        <a href="{{route('material.content', $row->id)}}" class="col-12 bg-purple py-5 px-10 rounded text-center">
+                        <a href="{{route('material.content', $row->id)}}" class="col-12 bg-purple py-5 px-10 rounded text-center play-sound">
                             <span class="text-light text-center fs-1 recoleta">{{$row->title}}</span>
                         </a>
                     </div>

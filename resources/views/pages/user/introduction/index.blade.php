@@ -10,19 +10,19 @@
                 </div>
 
                 <div class="row gy-2 mb-5">
-                    <a href="{{route('introduction.learning-objectives')}}" class="bg-purple py-5 rounded">
+                    <a href="{{route('introduction.learning-objectives')}}" class="bg-purple py-5 rounded play-sound">
                         <h1 class="text-light text-center fs-1 recoleta">Tujuan Pembelajaran</h1>
                     </a>
                 </div>
 
                 <div class="row gy-2 mb-5">
-                    <a href="{{route('introduction.guide')}}" class="bg-purple py-5 rounded">
+                    <a href="{{route('introduction.guide')}}" class="bg-purple py-5 rounded play-sound">
                         <h1 class="text-light text-center fs-1 recoleta">Panduan Penggunaan Media</h1>
                     </a>
                 </div>
 
                 <div class="row gy-2 mb-5">
-                    <a href="{{route('introduction.stage')}}" class="bg-purple py-5 rounded">
+                    <a href="{{route('introduction.stage')}}" class="bg-purple py-5 rounded play-sound">
                         <h1 class="text-light text-center fs-1 recoleta">Tahapan Kegiatan Pembelajaran</h1>
                     </a>
                 </div>

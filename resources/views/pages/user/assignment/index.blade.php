@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="row gy-5 py-8">
-                    <a href="{{route('assignment.edit', $id)}}" class="col-md-6 col-sm-12">
+                    <a href="{{route('assignment.edit', $id)}}" class="col-md-6 col-sm-12 play-sound">
                         <div class="card background" style="background-color: #9945d6;">
                             <div class="card-body text-center">
                                 <i class="ki-duotone ki-cloud-download text-light" style="font-size: 100px;">
@@ -22,7 +22,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="{{route("assignment.explore")}}" class="col-md-6 col-sm-12">
+                    <a href="{{route("assignment.explore")}}" class="col-md-6 col-sm-12 play-sound">
                         <div class="card background" style="background-color: #9945d6;">
                             <div class="card-body text-center">
                                 <i class="ki-duotone ki-parcel-tracking text-light" style="font-size: 100px;">

@@ -10,19 +10,19 @@
                 </div>
 
                 <div class="row gy-2 mb-5">
-                    <a href="{{route('evaluation.pretest')}}" class="bg-purple py-5 rounded">
+                    <a href="{{route('evaluation.pretest')}}" class="bg-purple py-5 rounded play-sound">
                         <h1 class="text-light text-center fs-1 recoleta">Pre-Test</h1>
                     </a>
                 </div>
 
                 <div class="row gy-2 mb-5">
-                    <a href="{{route('evaluation.game')}}" class="bg-purple py-5 rounded">
+                    <a href="{{route('evaluation.game')}}" class="bg-purple py-5 rounded play-sound">
                         <h1 class="text-light text-center fs-1 recoleta">Ayo Bermain</h1>
                     </a>
                 </div>
 
                 <div class="row gy-2 mb-5">
-                    <a href="{{route('evaluation.posttest')}}" class="bg-purple py-5 rounded">
+                    <a href="{{route('evaluation.posttest')}}" class="bg-purple py-5 rounded play-sound">
                         <h1 class="text-light text-center fs-1 recoleta">Post-Test</h1>
                     </a>
                 </div>

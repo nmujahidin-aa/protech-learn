@@ -32,4 +32,9 @@ class EvaluationController extends Controller
         return view($this->view.'posttest',[
         ]);
     }
+
+    public function game(){
+        return view($this->view.'game',[
+        ]);
+    }
 }

@@ -20,3 +20,18 @@
 <!--end::Javascript-->
 @yield('scripts')
 <!--end::Custom Javascript-->
+<script>
+    const clickAudio = document.getElementById('clickAudio');
+
+    // Function to play click sound
+    function playClickSound() {
+        clickAudio.currentTime = 0; // Reset audio to start
+        clickAudio.play();
+    }
+
+    // Apply the function to all elements with the class 'play-sound'
+    document.querySelectorAll('.play-sound').forEach(element => {
+        element.addEventListener('click', playClickSound);
+    });
+</script>
+

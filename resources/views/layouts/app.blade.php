@@ -77,6 +77,17 @@ License: For each use you must have a valid license purchased only from above li
             </div>
         </div>
 
+        <audio id="backgroundAudio" autoplay loop>
+            <source src="{{URL::to('/')}}/assets/music/backsound.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <audio id="clickAudio">
+            <source src="{{URL::to('/')}}/assets/music/click.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+
 		<!--end::Root-->
         <x-templates.user.scripts/>
 	</body>
