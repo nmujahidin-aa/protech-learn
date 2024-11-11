@@ -19,7 +19,7 @@ License: For each use you must have a valid license purchased only from above li
 		<!--begin::Root-->
 		<div class="d-flex flex-column flex-root" id="kt_app_root">
             <div class="container pt-6 d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#soundSettingsModal">
-                <a class="circlebutton notification me-2">
+                {{-- <a class="circlebutton notification me-2">
                     <i class="ki-solid ki-notification fs-1 text-light"></i>
                 </a>
                 @auth
@@ -31,7 +31,7 @@ License: For each use you must have a valid license purchased only from above li
                     <a class="circlebutton user" data-bs-toggle="modal" data-bs-target="#userModal">
                         <i class="ki-solid ki-user fs-1 text-light"></i>
                     </a>
-                @endauth
+                @endauth --}}
             </div>
             @yield('content')
 		</div>
