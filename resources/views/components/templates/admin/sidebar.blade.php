@@ -146,6 +146,21 @@
                     </a>
                 </div>
 
+
+                <div data-kt-menu-trigger="click" class="menu-item  @if(request()->routeIs('dashboard.grade.*')) here show @endif menu-accordion">
+                    <a href="{{route('dashboard.grade.index')}}" class="menu-link">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-chart-line-star fs-2">
+                                <i class="path1"></i>
+                                <i class="path2"></i>
+                                <i class="path3"></i>
+                            </i>
+                        </span>
+                        <span class="menu-title">Nilai Test</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                </div>
+
                 <!--end:Menu item-->
                 {{-- <div data-kt-menu-trigger="click" class="menu-item  @if(request()->routeIs('dashboard.user-answer.*')) here show @endif menu-accordion">
                     <a href="{{route('dashboard.user-answer.index')}}" class="menu-link">

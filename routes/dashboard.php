@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\WorksheetController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\AssignmentController;
 use App\Http\Controllers\Admin\EvaluationController;
+use App\Http\Controllers\Admin\GradeController;
 use App\Http\Controllers\Admin\PretestController;
 use App\Http\Controllers\Admin\PosttestController;
 
@@ -48,6 +49,8 @@ RouteHelper::make('worksheet', 'worksheet', WorksheetController::class);
 RouteHelper::make('team', 'team', TeamController::class);
 
 RouteHelper::make('assignment', 'assignment', AssignmentController::class);
+RouteHelper::make('grade', 'grade', GradeController::class);
+
 RouteHelper::make('evaluation', 'evaluation', EvaluationController::class);
 Route::group(["prefix"=>"evaluation", "as"=>"evaluation."], function(){
     Route::group(["prefix"=>"pretest", "as"=>"pretest."], function(){
