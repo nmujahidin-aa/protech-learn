@@ -43,7 +43,7 @@
             <div class="col-lg-6 col-sm-12 col-md-6 text-center">
                 <a href="{{route('worksheet.index')}}" class="card background play-sound">
                     <div class="card-body">
-                        <img src="assets/image/icon/4.png" alt="pendahuluan">
+                        <img src="assets/image/icon/4.png" alt="pendahuluan" style="width: 30%;">
                         <h4 class="text-light pt-1">E-LKPD</h4>
                     </div>
                 </a>
@@ -51,7 +51,7 @@
             <div class="col-lg-6 col-sm-12 col-md-6 text-center">
                 <a href="{{route("assignment.index")}}" class="card background play-sound">
                     <div class="card-body">
-                        <img src="assets/image/icon/5.png" alt="pendahuluan">
+                        <img src="assets/image/icon/5.png" alt="pendahuluan" style="width: 30%;">
                         <h4 class="text-light pt-1">Penugasan</h4>
                     </div>
                 </a>
@@ -59,7 +59,7 @@
             <div class="col-lg-6 col-sm-12 col-md-6 text-center">
                 <a href="{{route("evaluation.index")}}" class="card background play-sound">
                     <div class="card-body">
-                        <img src="assets/image/icon/6.png" alt="pendahuluan">
+                        <img src="assets/image/icon/6.png" alt="pendahuluan" style="width: 30%;">
                         <h4 class="text-light pt-1">Evaluasi</h4>
                     </div>
                 </a>
@@ -67,7 +67,7 @@
             <div class="col-lg-6 col-sm-12 col-md-6 text-center">
                 <a href="{{route("reference.index")}}" class="card background play-sound">
                     <div class="card-body">
-                        <img src="assets/image/icon/6.png" alt="pendahuluan">
+                        <img src="assets/image/icon/6.png" alt="pendahuluan" style="width: 30%;">
                         <h4 class="text-light pt-1">Rujukan</h4>
                     </div>
                 </a>
