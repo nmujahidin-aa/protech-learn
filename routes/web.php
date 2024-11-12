@@ -74,6 +74,10 @@ Route::group(["namespace" => "App\Http\Controllers\User", "middleware"=>"auth"],
         Route::get("/", "SdgsController@index")->name('index');
     });
 
+    Route::group(["prefix"=>"reference", "as"=>"reference."], function(){
+        Route::get("/", "ReferenceController@index")->name('index');
+    });
+
     Route::group(["prefix"=>"assignment", "as"=>"assignment."], function(){
         Route::get("/", "AssignmentController@index")->name('index');
         Route::post("/", "AssignmentController@store")->name( 'store');

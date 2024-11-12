@@ -45,6 +45,7 @@ class QuestionRequest extends FormRequest
             'option_b.required' => 'Opsi B harus diisi',
             'option_c.required' => 'Opsi C harus diisi',
             'option_d.required' => 'Opsi D harus diisi',
+            'option_e.required' => 'Opsi E harus diisi',
             'correct_answer.required' => 'Jawaban benar harus diisi',
             'packet.required' => 'Paket soal harus diisi',
         ];

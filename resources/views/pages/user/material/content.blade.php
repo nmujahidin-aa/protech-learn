@@ -51,12 +51,34 @@
                       </div>
                   </div>
                 @endif
-                <div class="d-flex justify-content-center" style="position: absolute; bottom: -25px; right: 10px;">
-                    <a href="{{route('material.index')}}" class="circlebutton">
-                        <i class="ki-solid ki-left fs-1 text-light"></i>
+            </div>
+
+            <div class="container" style="position: relative;">
+                <div class="d-flex justify-content-between align-items-center" style="position: absolute; bottom: -45px; width: 100%;">
+                    @if ($previousMaterial)
+                        <a href="{{ route('material.content', $previousMaterial->id) }}" class="circlebutton">
+                            <i class="ki-solid ki-left fs-1 text-light"></i>
+                        </a>
+                    @else
+                        <!-- Spacer div to keep layout centered -->
+                        <div style="width: 50px;"></div>
+                    @endif
+
+                    <a href="{{ route('material.index') }}" class="circlebutton" style="margin: auto;">
+                        <i class="ki-solid ki-home fs-1 text-light"></i>
                     </a>
+
+                    @if ($nextMaterial)
+                        <a href="{{ route('material.content', $nextMaterial->id) }}" class="circlebutton">
+                            <i class="ki-solid ki-right fs-1 text-light"></i>
+                        </a>
+                    @else
+                        <!-- Spacer div to keep layout centered -->
+                        <div style="width: 50px;"></div>
+                    @endif
                 </div>
             </div>
+
         </div>
     </div>
 </div>

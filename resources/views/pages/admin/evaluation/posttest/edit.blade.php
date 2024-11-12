@@ -96,11 +96,23 @@
                         </div>
                     </div>
                 </div>
+                {{-- Opsi E --}}
+                <div class="form-group row mb-3">
+                    <label class="col-md-2 col-form-label">Opsi E <span class="text-danger">*</span></label>
+                    <div class="col-md-10">
+                        <input type="text" name="option_e" class="form-control @error('option_e') is-invalid @enderror" id="option_e" value="{{ old('option_e') ? old('option_e') : (isset($questions) ? $questions->option_e : '') }}">
+                        <div class="invalid-feedback">
+                            @error('option_e')
+                            {{ $message }}
+                            @enderror
+                        </div>
+                    </div>
+                </div>
                 {{-- Correct Option --}}
                 <div class="form-group row mb-3">
                     <label class="col-md-2 col-form-label">Jawaban Benar <span class="text-danger">*</span></label>
                     <div class="col-md-10">
-                        <input type="text" name="correct_answer" class="form-control @error('correct_answer') is-invalid @enderror" id="correct_answer" value="{{ old('correct_answer') ? old('correct_answer') : (isset($questions) ? $questions->correct_answer : '') }}" placeholder="Hanya tulis 'a, b, c, atau d'">
+                        <input type="text" name="correct_answer" class="form-control @error('correct_answer') is-invalid @enderror" id="correct_answer" value="{{ old('correct_answer') ? old('correct_answer') : (isset($questions) ? $questions->correct_answer : '') }}" placeholder="Hanya tulis 'a, b, c, d atau e'">
                         <div class="invalid-feedback">
                             @error('correct_answer')
                             {{ $message }}

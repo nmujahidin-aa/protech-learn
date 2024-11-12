@@ -111,6 +111,11 @@
                                             {{ session('answers.' . $questionNumber) == 'd' ? 'checked' : '' }}>
                                         <label for="option_d" class="custom-control-label">{{ $question->option_d }}</label>
                                     </div>
+                                    <div class="custom-control custom-radio">
+                                        <input id="option_e" name="answer" type="radio" class="custom-control-input" value="e"
+                                            {{ session('answers.' . $questionNumber) == 'e' ? 'checked' : '' }}>
+                                        <label for="option_e" class="custom-control-label">{{ $question->option_e }}</label>
+                                    </div>
                                 </div>
                             </div>
 

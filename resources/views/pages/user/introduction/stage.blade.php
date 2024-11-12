@@ -15,9 +15,9 @@
             <div class="card-body" style="max-height: 70vh; overflow-y: auto; padding: 10px; scrollbar-width: none; -ms-overflow-style: none;">
                 <div class="bg rounded" style="background-color: #9945d6;">
                     <div class="py-3 px-3 text-light d-flex align-items-center">
-                        <a href="{{ route('introduction.index') }}" class="btn btn-light me-2 d-flex align-items-center justify-content-center play-sound" style="width: 35px; height: 35px;">
+                        {{-- <a href="{{ route('introduction.index') }}" class="btn btn-light me-2 d-flex align-items-center justify-content-center play-sound" style="width: 35px; height: 35px;">
                             <i class="ki-solid ki-left fs-2"></i>
-                        </a>
+                        </a> --}}
                         <p class="fw-bold fs-2 mb-0">Tahapan Kegiatan Pembelajaran</p>
                     </div>
                 </div>
@@ -26,6 +26,11 @@
                 @else
                     <p class="text-center text-danger pt-10 recoleta">-- Tahapan Kegiatan Pembelajaran Belum Dibuat --</p>
                 @endif
+            </div>
+            <div class="d-flex justify-content-center" style="position: absolute; bottom: -25px; right: 10px;">
+                <a href="{{route('introduction.index')}}" class="circlebutton">
+                    <i class="ki-solid ki-left fs-1 text-light"></i>
+                </a>
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="row gy-2 gx-2 mb-5">
-                    <a href="{{URL::to('/')}}/assets/lkpd/lkpd.pdf" download="" class="bg-purple py-5 rounded play-sound">
+                    <a href="https://bit.ly/ELKPD-PROTISTA-XJ" download="" class="bg-purple py-5 rounded play-sound">
                         <h1 class="text-light text-center fs-1 recoleta">Unduh E-LKPD</h1>
                     </a>
                 </div>
