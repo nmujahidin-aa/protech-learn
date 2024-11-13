@@ -27,6 +27,7 @@ class QuestionRequest extends FormRequest
             'option_b' => 'required|string',
             'option_c' => 'required|string',
             'option_d' => 'required|string',
+            'option_e' => 'required|string',
             'correct_answer' => 'required|string',
             'packet' => 'required|string',
         ];

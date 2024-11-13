@@ -52,7 +52,8 @@
                                     <span class="{{ $row->correct_answer == 'a' ? 'text-success' : 'text-muted' }} fs-6">A. {{$row->option_a}}</span><br>
                                     <span class="{{ $row->correct_answer == 'b' ? 'text-success' : 'text-muted' }} fs-6">B. {{$row->option_b}}</span><br>
                                     <span class="{{ $row->correct_answer == 'c' ? 'text-success' : 'text-muted' }} fs-6">C. {{$row->option_c}}</span><br>
-                                    <span class="{{ $row->correct_answer == 'd' ? 'text-success' : 'text-muted' }} fs-6">D. {{$row->option_d}}</span>
+                                    <span class="{{ $row->correct_answer == 'd' ? 'text-success' : 'text-muted' }} fs-6">D. {{$row->option_d}}</span><br>
+                                    <span class="{{ $row->correct_answer == 'e' ? 'text-success' : 'text-muted' }} fs-6">E. {{$row->option_e}}</span>
                                 </div>
                             </div>
                         </div>
