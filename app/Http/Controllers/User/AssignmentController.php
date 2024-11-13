@@ -126,7 +126,7 @@ class AssignmentController extends Controller
     public function store(AssignmentRequest $request)
     {
 
-        dd($request->all());
+        // dd($request->all());
         $filePath = null;
         if ($request->hasFile('image')) {
             $id = $request->team_id;
