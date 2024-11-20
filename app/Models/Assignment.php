@@ -15,6 +15,7 @@ class Assignment extends Model
         'image',
         'description',
         'team_id',
+        'gathering',
     ];
 
     public function team()

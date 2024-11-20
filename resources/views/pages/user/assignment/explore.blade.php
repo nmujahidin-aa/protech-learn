@@ -73,32 +73,40 @@
                 </div>
 
                 <div class="row gy-5 py-8">
-                    @foreach ($assignment as $index => $row)
-                    <div class="col-md-4 col-sm-12 position-relative">
-                        <!-- Wrapper button -->
-                        <button class="image-wrapper" data-bs-toggle="modal" data-bs-target="#kt_modal_stacked_1_{{$row->id}}">
-                            <img src="{{ asset('storage/' . $row->image) }}" alt="poster" class="img-fluid">
+                    @foreach ($assignment as $gathering => $group)
+                        <div class="my-5">
+                            <h2 class="text-center text-light recoleta">Pertemuan {{ $gathering }}</h2> <!-- Menampilkan gathering (pertama, kedua, dll) -->
+                            <div class="row gy-5 py-8">
+                                @foreach ($group as $row) <!-- $row is an individual Assignment model -->
+                                    <div class="col-md-4 col-sm-12 position-relative">
+                                        <div class="card border-dashed h-100">
+                                            <div class="card-body position-relative d-flex justify-content-center align-items-center p-2">
+                                                <button class="image-wrapper" data-bs-toggle="modal" data-bs-target="#kt_modal_stacked_1_{{$row->id}}">
+                                                    <img src="{{ asset('storage/' . $row->image) }}" alt="poster" class="img-fluid rounded ">
 
-                            <!-- Overlay with text, icons, and numbers -->
-                            <div class="overlay d-flex flex-column justify-content-center align-items-center">
-                                <p class="overlay-title text-white mb-4">{{$row->team->name}}</p> <!-- Teks di atas ikon -->
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <div class="d-flex align-items-center me-4">
-                                        <i class="bi bi-heart-fill text-white fs-1"></i> <!-- Icon Love -->
-                                        <span class="text-white fs-5 ms-2">{{ optional($row->likes)->count() ?? 0 }}</span> <!-- Angka di sebelah icon love -->
+                                                    <!-- Overlay with text, icons, and numbers -->
+                                                    <div class="overlay d-flex flex-column justify-content-center align-items-center">
+                                                        <p class="overlay-title text-white mb-4">{{$row->team->name}}</p> <!-- Teks di atas ikon -->
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <div class="d-flex align-items-center me-4">
+                                                                <i class="bi bi-heart-fill text-white fs-1"></i> <!-- Icon Love -->
+                                                                <span class="text-white fs-5 ms-2">{{ optional($row->likes)->count() ?? 0 }}</span> <!-- Angka di sebelah icon love -->
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <i class="bi bi-chat-fill text-white fs-1"></i> <!-- Icon Comment -->
+                                                                <span class="text-white fs-5 ms-2">{{ optional($row->comments)->count() ?? 0 }}</span> <!-- Angka di sebelah icon comment -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-chat-fill text-white fs-1"></i> <!-- Icon Comment -->
-                                        <span class="text-white fs-5 ms-2">{{ optional($row->comments)->count() ?? 0 }}</span> <!-- Angka di sebelah icon comment -->
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
-                        </button>
-                    </div>
+                        </div>
                     @endforeach
                 </div>
-
-
                 <div class="d-flex justify-content-center" style="position: absolute; bottom: -25px; right: 10px;">
                     <a href="{{route('assignment.index')}}" class="circlebutton">
                         <i class="ki-solid ki-arrow-left fs-1 text-light"></i>

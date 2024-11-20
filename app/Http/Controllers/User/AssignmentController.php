@@ -49,7 +49,10 @@ class AssignmentController extends Controller
     }
 
     public function explore(){
-        $assignment = $this->assignment::all();
+        $assignment = Assignment::with(['team', 'likes', 'comments'])
+            ->orderBy('gathering', 'asc')
+            ->get()
+            ->groupBy('gathering');
         $comment = $this->comment::all();
         return view($this->view."explore",[
             'assignment' => $assignment,
@@ -96,73 +99,72 @@ class AssignmentController extends Controller
 
     public function edit(string $id = null)
     {
-        $assignment = null;
-        $team = null;
-        $members = [];
-
-        // Ambil user yang sedang login
-        $loggedInUser = auth()->user();
-
-        // Gunakan relasi untuk mengambil tim yang terkait dengan user yang sedang login
-        $team = $loggedInUser->teams()->first(); // Ambil tim pertama yang terkait dengan user
-
-        // Jika user memiliki tim, ambil semua anggotanya
-        if ($team) {
-            // Ambil anggota tim dengan relasi
-            $members = $team->members()->get(); // Ambil semua member dari tim tersebut
-        }
-
-        $existingAssignment = $this->assignment::where('team_id', $id)->first();
+        $team = auth()->user()->teams()->first(); // Ambil tim pertama user
+        $members = $team ? $team->members()->get() : []; // Ambil anggota tim
+        $assignment = $this->assignment::where('team_id', $id)->get(); // Ambil data berdasarkan team_id
 
         return view($this->view . 'edit', [
-            'assignment' => $assignment,
             'team' => $team,
             'members' => $members,
             'id' => $id,
-            'existingAssignment' => $existingAssignment,
+            'assignment' => $assignment,
         ]);
     }
 
     public function store(AssignmentRequest $request)
     {
-
-        // dd($request->all());
+        // Menyiapkan path gambar default
         $filePath = null;
+
+        // Cek apakah ada file yang diupload
         if ($request->hasFile('image')) {
             $id = $request->team_id;
             $file = $request->file('image');
-            $fileName = 'poster_kelompok_'.$id.'_'.time() . '.' . $file->getClientOriginalExtension();
-            $filePath = $file->storeAs('assignment', $fileName, 'public');
+            $fileName = 'poster_kelompok_' . $id . '_' . time() . '.' . $file->getClientOriginalExtension();
+            $filePath = $file->storeAs('assignment', $fileName, 'public'); // Menyimpan file ke folder assignment
         }
 
+        // Ambil data yang sudah tervalidasi
         $data = $request->validated();
 
-        $existingAssignment = $this->assignment::where('team_id', $request->team_id)->first();
+        // Cek apakah assignment dengan team_id yang sama sudah ada
+        $existingAssignment = $this->assignment::where('team_id', $request->team_id)
+            ->where('gathering', $request->gathering)  // Pastikan gathering juga diperiksa
+            ->first();
 
         if ($existingAssignment) {
-            // If a record with the same team_id exists, update the assignment
+            // Jika sudah ada, lakukan update
             $assignment = $this->assignment::findOrFail($existingAssignment->id);
 
-            if ($filePath === null) {
-                $filePath = $assignment->image;
-            } else {
+            // Jika file baru diupload, hapus file lama
+            if ($filePath !== null) {
+                // Cek dan hapus gambar lama jika ada
                 if ($assignment->image && Storage::exists('public/' . $assignment->image)) {
                     Storage::delete('public/' . $assignment->image);
                 }
+                $data['image'] = $filePath; // Gunakan file yang baru
+            } else {
+                // Jika tidak ada file baru, tetap gunakan gambar lama
+                $data['image'] = $assignment->image;
             }
 
-            $data['image'] = $filePath;
+            // Update data assignment
             $assignment->update($data);
+
             alert()->html('Berhasil', 'Data berhasil diperbarui', 'success');
         } else {
-            // If no record with the same team_id exists, create a new assignment
+            // Jika tidak ada, buat assignment baru
             $data['image'] = $filePath;
             $data['team_id'] = $request->team_id;
             $data['description'] = $request->description;
+            $data['gathering'] = $request->gathering;
+
             $this->assignment::create($data);
+
             alert()->html('Berhasil', 'Data berhasil ditambahkan', 'success');
         }
 
-        return redirect()->route($this->route.'index');
+        return redirect()->route($this->route.'edit', $request->team_id);
     }
+
 }

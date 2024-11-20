@@ -25,6 +25,7 @@ class AssignmentRequest extends FormRequest
             'team_id' => ['required'],
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:5126'],
             'description' => ['required', 'string'],
+            'gathering' => ['required'],
         ];
     }
 
@@ -43,6 +44,7 @@ class AssignmentRequest extends FormRequest
             'image.max' => 'Poster maksimal berukuran 5MB',
             'description.required' => 'Deskripsi harus diisi',
             'description.string' => 'Deskripsi harus berupa string',
+            'gathering.required' => 'Pertemuan harus diisi',
         ];
     }
 }
